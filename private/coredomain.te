@@ -1,19 +1,6 @@
 get_prop(coredomain, pm_prop)
 get_prop(coredomain, exported_pm_prop)
 
-full_treble_only(`
-neverallow {
-    coredomain
-
-    # for chowning
-    -init
-
-    # generic access to sysfs_type
-    -ueventd
-    -vold
-} sysfs_leds:file *;
-')
-
 # On TREBLE devices, a limited set of files in /vendor are accessible to
 # only a few whitelisted coredomains to keep system/vendor separation.
 full_treble_only(`
